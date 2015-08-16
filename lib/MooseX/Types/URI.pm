@@ -1,22 +1,16 @@
-package MooseX::Types::URI;
-BEGIN {
-  $MooseX::Types::URI::AUTHORITY = 'cpan:NUFFIN';
-}
-# git description: v0.06-3-gd3fe48a
-$MooseX::Types::URI::VERSION = '0.07';
+use strict;
+use warnings;
+package MooseX::Types::URI; # git description: v0.07-13-g73c0cd8
 # ABSTRACT: URI related types and coercions for Moose
 # KEYWORDS: moose types constraints coercions uri path web
 
-use strict;
-use warnings;
+our $VERSION = '0.08';
 
 use Scalar::Util qw(blessed);
 
 use URI;
 use URI::QueryParam;
 use URI::WithBase;
-
-use Moose::Util::TypeConstraints;
 
 use MooseX::Types::Moose qw{Str ScalarRef HashRef};
 use MooseX::Types::Path::Class qw{File Dir};
@@ -82,7 +76,7 @@ MooseX::Types::URI - URI related types and coercions for Moose
 
 =head1 VERSION
 
-version 0.07
+version 0.08
 
 =head1 SYNOPSIS
 
@@ -93,6 +87,9 @@ version 0.07
 This package provides Moose types for fun with L<URI>s.
 
 =head1 TYPES
+
+The types are with C<ucfirst> naming convention so that they don't mask the
+L<URI> class.
 
 =head2 C<Uri>
 
@@ -124,11 +121,6 @@ It has slightly DWIMier types than the L<URI> classes have due to
 implementation details, so the types should be more forgiving when ducktyping
 will work anyway (e.g. L<URI::WithBase> does not inherit L<URI>).
 
-=head1 TYPES
-
-The types are with C<ucfirst> naming convention so that they don't mask the
-L<URI> class.
-
 =for stopwords TODO
 
 =head1 TODO
@@ -141,15 +133,9 @@ Think about L<Path::Resource> integration of some sort
 
 =head1 CONTRIBUTORS
 
+=for stopwords Karen Etheridge Florian Ragwitz Olivier Mengué Daniel Pittman MORIYA Masaki (gardejo) Shawn M Moore
+
 =over 4
-
-=item *
-
-Daniel Pittman <daniel@rimspace.net>
-
-=item *
-
-Florian Ragwitz <rafl@debian.org>
 
 =item *
 
@@ -157,7 +143,7 @@ Karen Etheridge <ether@cpan.org>
 
 =item *
 
-MORIYA Masaki (gardejo) <moriya@ermitejo.com>
+Florian Ragwitz <rafl@debian.org>
 
 =item *
 
@@ -165,11 +151,15 @@ Olivier Mengué <dolmen@cpan.org>
 
 =item *
 
-Shawn M Moore <sartak@gmail.com>
+Daniel Pittman <daniel@rimspace.net>
 
 =item *
 
-Yuval Kogman <nothingmuch@woobling.org>
+MORIYA Masaki (gardejo) <moriya@ermitejo.com>
+
+=item *
+
+Shawn M Moore <sartak@gmail.com>
 
 =back
 
